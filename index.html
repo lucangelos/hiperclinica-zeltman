@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiperclínica Zeltman</title>
+<meta name="description" content="Hiperclínica Zeltman - Odontologia Integrada em Praia Grande - SP. Implantes, clareamento, lentes de resina, alinhadores e muito mais.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#102B4C;
+    --navy-deep:#0A1E33;
+    --gold:#C89B48;
+    --gold-light:#E4C87E;
+    --cream:#F7F4EE;
+    --stone:#E7E0D2;
+    --ink:#1D1B18;
+    --ink-soft:#5B5750;
+    --line: rgba(16,43,76,0.12);
+    --radius: 2px;
+    --maxw: 1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Poppins', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  img{max-width:100%; display:block;}
+
+  a{color:inherit; text-decoration:none;}
+
+  .eyebrow{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.32em;
+    font-weight:600;
+    color:var(--gold);
+    text-transform:uppercase;
+  }
+
+  h1,h2,h3{
+    font-family:'Montserrat', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-weight:700;
+    color:var(--navy);
+  }
+
+  .section-wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  .section{
+    padding:5.5rem 0;
+  }
+
+  /* ============ SKIP LINK ============ */
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--navy); color:#fff; padding:0.8rem 1.2rem; z-index:999;
+  }
+  .skip-link:focus{ left:1rem; top:1rem; }
+
+  /* ============ HEADER / NAV ============ */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(247,244,238,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.7rem 6vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.7rem;
+  }
+
+  .brand img{
+    height:52px;
+    width:52px;
+    object-fit:contain;
+  }
+
+  .brand-text{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    letter-spacing:0.08em;
+    color:var(--navy);
+    line-height:1.15;
+  }
+  .brand-text span{
+    display:block;
+    font-family:'Poppins', sans-serif;
+    font-weight:400;
+    font-size:0.6rem;
+    letter-spacing:0.22em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+
+  nav.primary-nav ul{
+    list-style:none;
+    display:flex;
+    gap:2.1rem;
+  }
+
+  nav.primary-nav a{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.74rem;
+    letter-spacing:0.14em;
+    font-weight:600;
+    color:var(--navy);
+    text-transform:uppercase;
+    position:relative;
+    padding-bottom:6px;
+  }
+
+  nav.primary-nav a::after{
+    content:"";
+    position:absolute;
+    left:50%; bottom:0;
+    width:0; height:2px;
+    background:var(--gold);
+    transition:all 0.3s ease;
+    transform:translateX(-50%);
+  }
+  nav.primary-nav a:hover::after,
+  nav.primary-nav a:focus::after{ width:100%; }
+
+  .cta-nav{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    font-weight:700;
+    text-transform:uppercase;
+    background:var(--navy);
+    color:#fff !important;
+    padding:0.65rem 1.35rem;
+    border-radius:var(--radius);
+    border:1px solid var(--navy);
+    white-space:nowrap;
+  }
+  .cta-nav:hover{ background:var(--navy-deep); }
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:34px;
+    height:34px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    z-index:110;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    width:100%;
+    background:var(--navy);
+    transition:transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:radial-gradient(ellipse at 50% 15%, #1a3a63 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    overflow:hidden;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    width:900px; height:900px;
+    border:1px solid rgba(200,155,72,0.18);
+    border-radius:50%;
+    top:-260px; right:-320px;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    width:600px; height:600px;
+    border:1px solid rgba(200,155,72,0.14);
+    border-radius:50%;
+    bottom:-220px; left:-220px;
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:9rem 6vw 5rem;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:3rem;
+    align-items:center;
+    width:100%;
+  }
+
+  .hero-copy .eyebrow{ margin-bottom:1.2rem; display:inline-block; }
+
+  .hero-copy h1{
+    color:#fff;
+    font-size:clamp(2.1rem, 4.6vw, 3.6rem);
+    line-height:1.14;
+    margin-bottom:1.4rem;
+  }
+  .hero-copy h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+
+  .hero-copy p{
+    color:rgba(255,255,255,0.72);
+    font-size:1.02rem;
+    max-width:480px;
+    margin-bottom:2.2rem;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.13em;
+    font-weight:700;
+    text-transform:uppercase;
+    padding:0.95rem 1.9rem;
+    border-radius:var(--radius);
+    display:inline-block;
+    transition:all 0.25s ease;
+  }
+  .btn-gold{
+    background:var(--gold);
+    color:var(--navy-deep) !important;
+    border:1px solid var(--gold);
+  }
+  .btn-gold:hover{ background:var(--gold-light); border-color:var(--gold-light); transform:translateY(-2px); }
+
+  .btn-outline{
+    border:1px solid rgba(255,255,255,0.4);
+    color:#fff !important;
+  }
+  .btn-outline:hover{ border-color:var(--gold); color:var(--gold) !important; }
+
+  .hero-badge{
+    position:relative;
+    justify-self:center;
+    width:min(300px, 46vw);
+  }
+  .hero-badge .ring{
+    position:absolute;
+    inset:-22px;
+    border:1px solid rgba(200,155,72,0.4);
+    border-radius:50%;
+    animation:spin 40s linear infinite;
+  }
+  .hero-badge .ring::before{
+    content:"";
+    position:absolute;
+    top:-3px; left:50%;
+    width:6px; height:6px;
+    background:var(--gold);
+    border-radius:50%;
+    transform:translateX(-50%);
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .hero-scroll{
+    position:absolute;
+    bottom:2.2rem;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .hero-scroll span{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.62rem;
+    letter-spacing:0.28em;
+    color:rgba(255,255,255,0.55);
+    text-transform:uppercase;
+  }
+  .hero-scroll .line{
+    width:1px; height:34px;
+    background:linear-gradient(var(--gold), transparent);
+  }
+
+  /* ============ ABOUT ============ */
+  .about{
+    background:var(--cream);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:4rem;
+    align-items:start;
+  }
+  .about-head h2{
+    font-size:clamp(1.7rem, 2.6vw, 2.3rem);
+    margin:0.8rem 0 1.4rem;
+    line-height:1.25;
+  }
+  .about-head p.lead{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+
+  .about-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.5rem;
+    margin-top:2.6rem;
+    padding-top:2.2rem;
+    border-top:1px solid var(--line);
+  }
+  .stat b{
+    font-family:'Montserrat', sans-serif;
+    color:var(--navy);
+    font-size:1.9rem;
+    display:block;
+  }
+  .stat span{
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+
+  .about-body p{
+    color:var(--ink-soft);
+    margin-bottom:1.2rem;
+  }
+
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem;
+    margin-top:1.8rem;
+  }
+  .tag{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    font-weight:600;
+    text-transform:uppercase;
+    color:var(--navy);
+    border:1px solid var(--line);
+    background:#fff;
+    padding:0.5rem 1rem;
+    border-radius:999px;
+  }
+
+  /* ============ SERVICES ============ */
+  .services{
+    background:var(--navy);
+    position:relative;
+  }
+  .services .eyebrow{ color:var(--gold); }
+  .services h2{ color:#fff; }
+  .services-head{
+    max-width:560px;
+    margin-bottom:3.2rem;
+  }
+  .services-head p{
+    color:rgba(255,255,255,0.65);
+    margin-top:1rem;
+  }
+
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.1);
+  }
+
+  .service-card{
+    background:var(--navy-deep);
+    padding:2.4rem 2rem;
+    transition:background 0.3s ease;
+  }
+  .service-card:hover{ background:#0d2542; }
+
+  .service-icon{
+    width:56px; height:56px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:1.4rem;
+  }
+  .service-icon svg{ width:26px; height:26px; stroke:var(--gold); }
+
+  .service-card h3{
+    color:#fff;
+    font-size:0.95rem;
+    letter-spacing:0.06em;
+    margin-bottom:0.6rem;
+  }
+  .service-card p{
+    color:rgba(255,255,255,0.6);
+    font-size:0.88rem;
+  }
+
+  /* ============ AMBIENTE ============ */
+  .ambiente{
+    background:var(--cream);
+  }
+  .ambiente-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3.5rem;
+    align-items:center;
+  }
+  .ambiente-photo{
+    position:relative;
+  }
+  .ambiente-photo img{
+    border-radius:6px;
+    box-shadow:0 30px 60px -20px rgba(16,43,76,0.35);
+  }
+  .ambiente-photo::before{
+    content:"";
+    position:absolute;
+    top:-24px; left:-24px;
+    width:120px; height:120px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    z-index:-1;
+  }
+
+  .ambiente-list{
+    list-style:none;
+    margin-top:1.8rem;
+  }
+  .ambiente-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:0.8rem;
+    padding:0.6rem 0;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  .ambiente-list li::before{
+    content:"";
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    margin-top:0.55rem;
+    flex-shrink:0;
+  }
+
+  /* ============ REPUTAÇÃO ============ */
+  .reputacao{
+    background:var(--stone);
+  }
+  .rep-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:2rem;
+    margin-top:3rem;
+  }
+  .rep-card{
+    background:#fff;
+    padding:2rem 1.6rem;
+    border-radius:6px;
+    text-align:center;
+    border:1px solid var(--line);
+  }
+  .rep-card .num{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    color:var(--navy);
+    font-size:1.6rem;
+    display:block;
+    margin-bottom:0.3rem;
+  }
+  .rep-card p{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+
+  .rep-note{
+    max-width:720px;
+    margin:3rem auto 0;
+    text-align:center;
+    color:var(--ink-soft);
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.35rem;
+    line-height:1.5;
+  }
+
+  /* ============ CONTATO ============ */
+  .contato{
+    background:var(--navy);
+    color:#fff;
+  }
+  .contato .eyebrow{ color:var(--gold); }
+  .contato h2{ color:#fff; }
+
+  .contato-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3.5rem;
+    margin-top:2.6rem;
+  }
+
+  .contato-item{
+    display:flex;
+    gap:1rem;
+    padding:1.4rem 0;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .contato-item .ic{
+    width:42px; height:42px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+
+  .fa-brands{
+    color: var(--gold);
+  }
+  .contato-item .ic svg{ width:18px; height:18px; stroke:var(--gold); }
+  .contato-item h4{
+    font-family:'Montserrat', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:0.35rem;
+  }
+  .contato-item p, .contato-item a{
+    color:rgba(255,255,255,0.78);
+    font-size:0.95rem;
+  }
+
+  .map-frame{
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:6px;
+    overflow:hidden;
+    min-height:320px;
+  }
+  .map-frame iframe{ width:100%; height:100%; min-height:320px; border:0; filter:grayscale(0.2) contrast(1.05); }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--navy-deep);
+    color:rgba(255,255,255,0.6);
+    padding:3rem 0 1.6rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 6vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1.6rem;
+  }
+  .footer-brand{
+    display:flex;
+    align-items:center;
+    gap:0.7rem;
+  }
+  .footer-brand img{ height:40px; width:40px; object-fit:contain; }
+  .footer-brand b{
+    font-family:'Montserrat', sans-serif;
+    color:#fff;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+  }
+  .footer-links{
+    display:flex;
+    gap:1.6rem;
+    list-style:none;
+    font-size:0.82rem;
+  }
+  .footer-bottom{
+    text-align:center;
+    font-size:0.75rem;
+    margin-top:2.2rem;
+    color:rgba(255,255,255,0.35);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px){
+    nav.primary-nav{
+      position:fixed;
+      top:0; right:0;
+      height:100vh;
+      width:min(320px, 78vw);
+      background:var(--navy-deep);
+      padding:7rem 2.2rem 2rem;
+      transform:translateX(100%);
+      transition:transform 0.35s ease;
+      z-index:105;
+    }
+    nav.primary-nav.open{ transform:translateX(0); }
+    nav.primary-nav ul{
+      flex-direction:column;
+      gap:1.5rem;
+    }
+    nav.primary-nav a{ color:#fff; font-size:0.85rem; }
+    nav.primary-nav a::after{ background:var(--gold); }
+    .cta-nav{ display:none; }
+    nav.primary-nav .cta-nav{
+      display:inline-block;
+      margin-top:1rem;
+      text-align:center;
+      color:#fff !important;
+    }
+    .hamburger{ display:flex; }
+
+    .nav-overlay{
+      position:fixed; inset:0;
+      background:rgba(10,30,51,0.55);
+      opacity:0; pointer-events:none;
+      transition:opacity 0.3s ease;
+      z-index:104;
+    }
+    .nav-overlay.open{ opacity:1; pointer-events:auto; }
+
+    .hero-inner{ grid-template-columns:1fr; text-align:center; padding-top:8rem; }
+    .hero-copy p{ margin-left:auto; margin-right:auto; }
+    .hero-actions{ justify-content:center; }
+    .hero-badge{ order:-1; width:180px; }
+
+    .about-grid, .ambiente-grid, .contato-grid{
+      grid-template-columns:1fr;
+    }
+    .about-stats{ grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .services-grid{ grid-template-columns:1fr 1fr; }
+    .rep-grid{ grid-template-columns:1fr 1fr; }
+    .ambiente-photo{ order:-1; }
+  }
+
+  @media (max-width: 560px){
+    .section{ padding:3.6rem 0; }
+    .services-grid{ grid-template-columns:1fr; }
+    .rep-grid{ grid-template-columns:1fr 1fr; gap:1rem; }
+    .about-stats{ grid-template-columns:1fr; gap:1.2rem; text-align:left; }
+    .footer-inner{ flex-direction:column; text-align:center; }
+    .footer-links{ flex-wrap:wrap; justify-content:center; }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<a href="#inicio" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="nav-inner">
+    <a href="#inicio" class="brand">
+      <img src="logo_circular.png" alt="Logotipo Hiperclínica Zeltman">
+      <span class="brand-text">HIPERCLÍNICA ZELTMAN<span>Odontologia Integrada</span></span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#ambiente">Ambiente</a></li>
+        <li><a href="#reputacao">Reputação</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="https://api.whatsapp.com/send/?phone=5513359235888&text=Oi" class="cta-nav" target="_blank" rel="noopener">Agendar</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<main id="inicio">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Odontologia integrada · Praia Grande – SP</span>
+        <h1>Devolvemos <em>autoestima</em>, saúde e bem-estar ao seu sorriso</h1>
+        <p>Mais de duas décadas de experiência em odontologia de alto padrão, com atendimento humanizado, tecnologia de ponta e uma equipe especializada em todas as áreas do sorriso.</p>
+        <div class="hero-actions">
+          <a href="https://api.whatsapp.com/send/?phone=5513359235888&text=Oi" class="btn btn-gold" target="_blank" rel="noopener">Agendar consulta</a>
+          <a href="#servicos" class="btn btn-outline">Conhecer tratamentos</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="ring"></div>
+        <img src="logo_circular.png" alt="">
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="line"></div>
+      <span>Role para saber mais</span>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section class="section about" id="sobre">
+    <div class="section-wrap about-grid">
+      <div class="about-head">
+        <span class="eyebrow">Quem somos</span>
+        <h2>Excelência clínica com identidade premium</h2>
+        <p class="lead">Localizada no bairro Boqueirão, em Praia Grande – SP, a Hiperclínica Zeltman é reconhecida pela infraestrutura moderna, pelo atendimento humanizado e por tratamentos odontológicos completos para pacientes de todas as idades.</p>
+
+        <div class="about-stats">
+          <div class="stat"><b>29</b><span>Anos de história</span></div>
+          <div class="stat"><b>7,5k+</b><span>Pacientes na comunidade</span></div>
+          <div class="stat"><b>6+</b><span>Áreas de tratamento</span></div>
+        </div>
+      </div>
+
+      <div class="about-body">
+        <p>Nosso compromisso vai além da saúde bucal: buscamos devolver autoestima, qualidade de vida e bem-estar por meio de tratamentos modernos e tecnologia de ponta, com profissionais especializados em diversas áreas da odontologia.</p>
+        <p>A forte reputação da clínica é refletida nas avaliações dos pacientes, que destacam constantemente a organização, a limpeza, o conforto do ambiente, a cordialidade da equipe e a qualidade técnica dos profissionais.</p>
+
+        <div class="tag-row">
+          <span class="tag">Sofisticada</span>
+          <span class="tag">Acolhedora</span>
+          <span class="tag">Confiável</span>
+          <span class="tag">Moderna</span>
+          <span class="tag">Humana</span>
+          <span class="tag">Tecnológica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section class="section services" id="servicos">
+    <div class="section-wrap">
+      <div class="services-head">
+        <span class="eyebrow">Tratamentos</span>
+        <h2>Cuidado completo, do diagnóstico ao sorriso</h2>
+        <p>Conteúdo educativo e institucional guia cada etapa do tratamento, com foco em resultados reais e transparência.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 0-5 1.8-5 4.6 0 2 1 3 1.3 5.4.3 2.3.7 6 2 6 1.5 0 1-4.4 1.7-6.4.7 2 .2 6.4 1.7 6.4 1.3 0 1.7-3.7 2-6 .3-2.4 1.3-3.4 1.3-5.4C17 4.8 15 3 12 3Z"/></svg></div>
+          <h3>Implantes</h3>
+          <p>Reabilitação com tecnologia de ponta para recuperar função e estética.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Clareamento</h3>
+          <p>Dentes mais brancos com segurança e acompanhamento profissional.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="8"/></svg></div>
+          <h3>Lentes de resina</h3>
+          <p>Harmonização do sorriso com resultados naturais e duradouros.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M4 8h16M4 16h16"/></svg></div>
+          <h3>Alinhadores</h3>
+          <p>Ortodontia discreta e confortável, no seu ritmo de vida.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.6"/><path d="M12 3v3M12 18v3"/></svg></div>
+          <h3>Piercing dental</h3>
+          <p>Detalhe de personalidade aplicado com segurança clínica.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c4 2 6 5 6 9a6 6 0 0 1-12 0c0-4 2-7 6-9Z"/></svg></div>
+          <h3>Higiene bucal</h3>
+          <p>Prevenção e manutenção para uma saúde bucal duradoura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AMBIENTE ============ -->
+  <section class="section ambiente" id="ambiente">
+    <div class="section-wrap ambiente-grid">
+      <div class="ambiente-photo">
+        <img src="ambiente.png" alt="Recepção da Hiperclínica Zeltman, com poltronas estofadas, plantas naturais e balcão em mosaico de pedras">
+      </div>
+      <div class="ambiente-copy">
+        <span class="eyebrow">O espaço</span>
+        <h2>Um ambiente que acolhe antes mesmo do atendimento</h2>
+        <p class="lead">O interior da clínica segue exatamente a proposta da identidade visual, reduzindo a sensação de ambiente hospitalar e proporcionando uma experiência mais agradável ao paciente.</p>
+        <ul class="ambiente-list">
+          <li>Madeira natural e porcelanato claro</li>
+          <li>Recepção elegante com iluminação quente</li>
+          <li>Jardim vertical e móveis em tons de cinza</li>
+          <li>Balcão revestido com mosaico em pedras</li>
+          <li>Logotipo em destaque na parede</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPUTAÇÃO ============ -->
+  <section class="section reputacao" id="reputacao">
+    <div class="section-wrap">
+      <span class="eyebrow">Reputação</span>
+      <h2>Confiança construída paciente a paciente</h2>
+
+      <div class="rep-grid">
+        <div class="rep-card"><span class="num">7,5k+</span><p>Seguidores no Instagram</p></div>
+        <div class="rep-card"><span class="num">167+</span><p>Publicações educativas</p></div>
+        <div class="rep-card"><span class="num">29</span><p>Anos de atuação</p></div>
+        <div class="rep-card"><span class="num">100%</span><p>Foco no paciente</p></div>
+      </div>
+
+      <p class="rep-note">"Organização, limpeza, conforto do ambiente, cordialidade da equipe e qualidade técnica" — os pontos mais destacados nas avaliações dos nossos pacientes.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="section contato" id="contato">
+    <div class="section-wrap">
+      <span class="eyebrow">Fale conosco</span>
+      <h2>Agende sua avaliação</h2>
+
+      <div class="contato-grid">
+        <div>
+          <div class="contato-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+            <div>
+              <h4>Endereço</h4>
+              <p>R. São Caetano, 474 — Boqueirão, Praia Grande – SP</p>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-2 2c-2-1-4-3-5-5l2-2-3-6-4 3Z"/></svg></div>
+            <div>
+              <h4>Telefone</h4>
+              <p><a href="tel:+551335923588">(13) 3592-3588</a></p>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="ic"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://api.whatsapp.com/send/?phone=5513359235888&text=Oi" target="_blank" rel="noopener">Enviar mensagem</a></p>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></div>
+            <div>
+              <h4>Instagram</h4>
+              <p><a href="https://www.instagram.com/hiperclinica_zeltman/" target="_blank" rel="noopener">@hiperclinica_zeltman</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=R.+S%C3%A3o+Caetano,+474+-+Boqueir%C3%A3o,+Praia+Grande+-+SP&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização da Hiperclínica Zeltman"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo_circular.png" alt="Logotipo Hiperclínica Zeltman">
+      <b>HIPERCLÍNICA ZELTMAN</b>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#ambiente">Ambiente</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+  <p class="footer-bottom">© 2026 Hiperclínica Zeltman — Odontologia Integrada. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const primaryNav = document.getElementById('primaryNav');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function toggleMenu(forceClose){
+    const isOpen = forceClose ? false : !primaryNav.classList.contains('open');
+    primaryNav.classList.toggle('open', isOpen);
+    navOverlay.classList.toggle('open', isOpen);
+    hamburgerBtn.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  hamburgerBtn.addEventListener('click', () => toggleMenu());
+  navOverlay.addEventListener('click', () => toggleMenu(true));
+  primaryNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(true));
+  });
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 860){ toggleMenu(true); }
+  });
+</script>
+
+</body>
+</html>
